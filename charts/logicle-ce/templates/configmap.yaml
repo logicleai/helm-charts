@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "logicle.fullname" . }}
+data:
+  APP_URL: "{{ if .Values.config.useHttps }}https{{ else }}http{{ end }}://{{ .Values.config.fqdn }}"
+  NEXTAUTH_URL: "{{ if .Values.config.useHttps }}https{{ else }}http{{ end }}://{{ .Values.config.fqdn }}/api/auth"
+  PORT: "8080"
+{{- if eq .Values.database.type "sqlite" }}
+  DB_ENGINE: "sqlite"
+{{- else if eq .Values.database.type "postgres" }}
+  DB_ENGINE: "postgres"
+{{- end }}
+  FILE_STORAGE_LOCATION: "/data/files"
+  LLM_PROVIDER_CONFIG_LOCK: "{{ if .Values.config.LLM_PROVIDER_CONFIG_LOCK }}1{{ else }}0{{ end }}"
+  SSO_CONFIG_LOCK: "{{ if .Values.config.SSO_CONFIG_LOCK }}1{{ else }}0{{ end }}"
+  ENABLE_SIGNUP: "{{ if .Values.config.ENABLE_SIGNUP }}1{{ else }}0{{ end }}"

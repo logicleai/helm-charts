@@ -1,0 +1,35 @@
+{{- if .Values.storage.enabled }}
+{{- if eq .Values.database.type "sqlite" }}
+{{- $sqlite := .Values.storage.sqlite.persistentVolumeClaim -}}
+{{- if not $sqlite.existingClaim }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "logicle.fullname" . }}-sqlite
+spec:
+  storageClassName: {{ $sqlite.storageClass }}
+  accessModes:
+    - {{ $sqlite.accessMode }}
+  resources:
+    requests:
+      storage: {{ $sqlite.size }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- if .Values.storage.enabled }}
+{{- $files := .Values.storage.files.persistentVolumeClaim }}
+{{- if not $files.existingClaim }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "logicle.fullname" . }}-files
+spec:
+  storageClassName: {{ $files.storageClass }}
+  accessModes:
+    - {{ $files.accessMode }}
+  resources:
+    requests:
+      storage: {{ $files.size }}
+{{- end }}
+{{- end }}
