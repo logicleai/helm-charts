@@ -4,7 +4,7 @@ metadata:
   name: {{ include "logicle.fullname" . }}
 data:
   APP_URL: "{{ if .Values.config.useHttps }}https{{ else }}http{{ end }}://{{ .Values.config.fqdn }}"
-  NEXTAUTH_URL: "{{ if .Values.config.useHttps }}https{{ else }}http{{ end }}://{{ .Values.config.fqdn }}/api/auth"
+  NEXTAUTH_URL: "{{ if .Values.config.useHttps }}https{{ else }}http{{ end }}://{{ .Values.config.fqdn }}"
   PORT: "8080"
 {{- if eq .Values.database.type "sqlite" }}
   DB_ENGINE: "sqlite"
