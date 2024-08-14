@@ -1,1 +1,1 @@
-# logicle-helm-charts
+# helm-charts
