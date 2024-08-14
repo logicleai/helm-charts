@@ -95,7 +95,7 @@ jobs:
           echo $HTML_CONTENT >> ${{env.PREVIEW_BUILD_FOLDER}}/index.html
 
           pip install awscli
-          aws s3 cp ${{env.PREVIEW_BUILD_FOLDER}} s3://${{env.AWS_BUCKET}}/${{ env.HELM_SUB_FOLDER }} --recursive
+          aws s3 cp ${{env.PREVIEW_BUILD_FOLDER}} s3://${{env.AWS_BUCKET}}/${{ env.HELM_SUB_FOLDER }} --recursive --region ${{env.AWS_REGION}}
 
           echo "************************************************"
           echo "http://${{env.AWS_BUCKET}}.s3-website.${{env.AWS_REGION}}.amazonaws.com/${{env.HELM_SUB_FOLDER}}"
