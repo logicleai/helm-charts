@@ -5,7 +5,7 @@ config:
   LLM_PROVIDER_CONFIG_LOCK: false
   SSO_CONFIG_LOCK: false
   ENABLE_SIGNUP: true
-  ENABLE_TOOLS: false
+  ENABLE_TOOLS: true
 
 database:
   type: "sqlite" # Options: "sqlite", "postgres"
