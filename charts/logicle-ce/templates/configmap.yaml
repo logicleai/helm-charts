@@ -16,3 +16,4 @@ data:
   SSO_CONFIG_LOCK: "{{ if .Values.config.SSO_CONFIG_LOCK }}1{{ else }}0{{ end }}"
   ENABLE_SIGNUP: "{{ if .Values.config.ENABLE_SIGNUP }}1{{ else }}0{{ end }}"
   ENABLE_TOOLS: "{{ if .Values.config.ENABLE_TOOLS }}1{{ else }}0{{ end }}"
+  CHAT_ATTACHMENTS_ALLOWED_FORMATS: "{{ .Values.config.CHAT_ATTACHMENTS_ALLOWED_FORMATS }}"
