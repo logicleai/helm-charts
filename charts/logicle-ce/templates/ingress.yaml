@@ -21,6 +21,7 @@ metadata:
   {{- if .Values.config.useHttps }}
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt"
+    nginx.ingress.kubernetes.io/proxy-body-size: 256m
   {{- end }}
 spec:
   {{- if and .Values.ingress.ingressClass (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
