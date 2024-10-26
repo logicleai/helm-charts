@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   logicle-ce:
   - apiVersion: v2
+    appVersion: v0.7.1
+    created: "2024-10-26T11:51:10.013573197Z"
+    description: The Open Source ChatGPT Enterprise Alternative
+    digest: 55e2bddc6f2a8f8507f3ca75e59d41487e0e57b522f2a9435474122806d460d4
+    name: logicle-ce
+    type: application
+    urls:
+    - https://github.com/logicleai/helm-charts/releases/download/logicle-ce-0.0.31/logicle-ce-0.0.31.tgz
+    version: 0.0.31
+  - apiVersion: v2
     appVersion: v0.7.0
     created: "2024-10-22T08:48:29.33980416Z"
     description: The Open Source ChatGPT Enterprise Alternative
@@ -81,4 +91,4 @@ entries:
     urls:
     - https://github.com/logicleai/logicle-helm-charts/releases/download/logicle-ce-0.0.23/logicle-ce-0.0.23.tgz
     version: 0.0.23
-generated: "2024-10-22T08:48:29.339852721Z"
+generated: "2024-10-26T11:51:10.01363328Z"
